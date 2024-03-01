@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullion Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1 class="logo">Bullion Finder</h1>
+    </div>
+
+    <div class="container">
+        <div class="search-sort-container">
+            <form action="/search" method="post" class="search-form">
+                <input type="text" name="search_query" placeholder="Enter search query">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="message-container">
+            <p class="message">This is a simple example web scraper app. This web scraper searches popular gold and bullion sites based on the user's search and displays the results. Try searching for a specific coin or even just type "gold".</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Super Cool Bullion Finder. All rights reserved.</p>
+    </div>
+</body>
+</html>

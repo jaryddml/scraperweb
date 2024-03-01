@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add necessary meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Header section -->
+    <header class="header">
+        <h1 class="logo">Bullion Finder</h1>
+    </header>
+
+    <!-- Main content section -->
+    <main class="container">
+        <!-- Search-Sort container -->
+        <div class="search-sort-container">
+            <!-- Search form -->
+            <form action="/results" method="get" class="search-form">
+                <input type="text" name="search_query" placeholder="Enter search query">
+                <button type="submit">Search</button>
+            </form>
+            <!-- Sort form -->
+            <form action="/results" method="get" class="sort-form">
+                <select name="sort_by" onchange="this.form.submit()">
+                    <option value="">Sort by...</option>
+                    <option value="price_asc">Price Ascending</option>
+                    <option value="price_desc">Price Descending</option>
+                </select>
+            </form>
+        </div>
+
+        <!-- Results container -->
+        <ul class="results-container">
+            {% for result in results %}
+            <li class="result-item">
+                <img src="{{ result.image }}" alt="{{ result.title }}">
+                <div class="item-info">
+                    <a href="{{ result.link }}">{{ result.title }}</a>
+                    <div class="price">{{ result.price }}</div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Super Cool Bullion Finder. All rights reserved.</p>
+    </footer>
+</body>
+</html>
